@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Features\aaa_SampleFeature\Commands\Create\.gitkeep" />
+    <None Remove="Features\aaa_SampleFeature\Commands\Delete\.gitkeep" />
+    <None Remove="Features\aaa_SampleFeature\Commands\Update\.gitkeep" />
+    <None Remove="Features\aaa_SampleFeature\Queries\GetDetails\.gitkeep" />
+    <None Remove="Features\aaa_SampleFeature\Queries\GetList\.gitkeep" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="MediatR" Version="12.4.1" />
   </ItemGroup>

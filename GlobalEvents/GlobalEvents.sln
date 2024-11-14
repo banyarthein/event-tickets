@@ -17,7 +17,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{F321EB91-A9B0-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalEvents.Domain", "GlobalEvents.Domain\GlobalEvents.Domain.csproj", "{45557AC8-034A-4E4B-8939-3B0672C811BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalEvents.Application", "GlobalEvents.Application\GlobalEvents.Application.csproj", "{3D9C8182-8961-45AC-9A33-B90DBC523546}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalEvents.Application", "GlobalEvents.Application\GlobalEvents.Application.csproj", "{3D9C8182-8961-45AC-9A33-B90DBC523546}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AB2B353A-F27D-4631-83AE-D5738F79E18B}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
