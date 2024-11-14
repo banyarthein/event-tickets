@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using GlobalEvents.Application.Features.Events;
+using GlobalEvents.Application.Features.Events.Queries.GetEventDetails;
+using GlobalEvents.Application.Features.Events.Queries.GetEventList;
 using GlobalEvents.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -13,8 +14,10 @@ namespace GlobalEvents.Application.Profiles
     {
         public MappingProfile()
         {
-            CreateMap<Event, EventListVM>().ReverseMap();
-
+            CreateMap<Event, EventListModel>().ReverseMap();
+            CreateMap<Event, EventDetailModel>().ReverseMap();
+            CreateMap<Category, CategoryModel>().ReverseMap();
         }
+
     }
 }

@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GlobalEvents.Application.Features.Events
+namespace GlobalEvents.Application.Features.Events.Queries.GetEventList
 {
-    public class GetEventsListQueryHandler : IRequestHandler<GetEventsListQuery, List<EventListVM>>
+    public class GetEventsListQueryHandler : IRequestHandler<GetEventsListQuery, List<EventListModel>>
     {
         private readonly IMapper _mapper;
         private readonly IEventRepo _eventRepo;
@@ -21,10 +21,10 @@ namespace GlobalEvents.Application.Features.Events
             _eventRepo = eventRepo;
         }
 
-        public async Task<List<EventListVM>> Handle(GetEventsListQuery request, CancellationToken cancellationToken)
+        public async Task<List<EventListModel>> Handle(GetEventsListQuery request, CancellationToken cancellationToken)
         {
             var allEvents = (await _eventRepo.ListAllAsync()).OrderBy(c => c.Date);
-            return _mapper.Map<List<EventListVM>>(allEvents);
+            return _mapper.Map<List<EventListModel>>(allEvents);
         }
 
 
