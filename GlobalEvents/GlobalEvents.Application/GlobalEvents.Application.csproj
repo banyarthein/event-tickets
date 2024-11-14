@@ -12,6 +12,14 @@
     <None Remove="Features\aaa_SampleFeature\Commands\Update\.gitkeep" />
     <None Remove="Features\aaa_SampleFeature\Queries\GetDetails\.gitkeep" />
     <None Remove="Features\aaa_SampleFeature\Queries\GetList\.gitkeep" />
+    <None Remove="Features\Categories\Commands\Create\.gitkeep" />
+    <None Remove="Features\Categories\Commands\Delete\.gitkeep" />
+    <None Remove="Features\Categories\Commands\Update\.gitkeep" />
+    <None Remove="Features\Orders\Commands\Create\.gitkeep" />
+    <None Remove="Features\Orders\Commands\Delete\.gitkeep" />
+    <None Remove="Features\Orders\Commands\Update\.gitkeep" />
+    <None Remove="Features\Orders\Queries\GetDetails\.gitkeep" />
+    <None Remove="Features\Orders\Queries\GetList\.gitkeep" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,8 +40,6 @@
     <Folder Include="Features\Categories\Commands\Create\" />
     <Folder Include="Features\Categories\Commands\Delete\" />
     <Folder Include="Features\Categories\Commands\Update\" />
-    <Folder Include="Features\Categories\Queries\GetDetails\" />
-    <Folder Include="Features\Categories\Queries\GetList\" />
     <Folder Include="Features\Events\Commands\CreateEvent\" />
     <Folder Include="Features\Events\Commands\DeleteEvent\" />
     <Folder Include="Features\Events\Commands\UpdateEvent\" />
