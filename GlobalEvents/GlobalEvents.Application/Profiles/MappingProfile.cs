@@ -4,11 +4,6 @@ using GlobalEvents.Application.Features.Events.Commands.CreateEvent;
 using GlobalEvents.Application.Features.Events.Queries.GetEventDetails;
 using GlobalEvents.Application.Features.Events.Queries.GetEventList;
 using GlobalEvents.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GlobalEvents.Application.Profiles
 {

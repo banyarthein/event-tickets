@@ -1,16 +1,16 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using GlobalEvents.Application.Interface.Persistence;
 
 namespace GlobalEvents.Application.Features.Events.Commands.CreateEvent
 {
     public class CreateEventCommandValidator: AbstractValidator<CreateEventCommand>
     {
-        public CreateEventCommandValidator()
+        private readonly IEventRepo _eventRepo;
+
+        public CreateEventCommandValidator(IEventRepo eventRepo)
         {
+            _eventRepo = eventRepo;
+
             int nameMaxLength = 50;
             RuleFor(p => p.Name)
                 .NotEmpty().WithMessage("{PropertyName} is requried.")
@@ -25,6 +25,15 @@ namespace GlobalEvents.Application.Features.Events.Commands.CreateEvent
             RuleFor(p => p.Price)
                 .NotEmpty().WithMessage("{PropertyName} is requried.")
                 .GreaterThan(0);
+
+            RuleFor(p => p)
+                .MustAsync(EventNameAndDateUnique)
+                .WithMessage("An event with the same name and date already exists.");
+        }
+
+        private async Task<bool> EventNameAndDateUnique(CreateEventCommand e, CancellationToken token)
+        {
+            return (!(await _eventRepo.IsEventNameAndDateUniqueAsync(e.Name, e.Date)));
         }
     }
 }

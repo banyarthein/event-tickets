@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Features\aaa_SampleFeature - Copy\Commands\Create\.gitkeep" />
     <None Remove="Features\aaa_SampleFeature\Commands\Create\.gitkeep" />
     <None Remove="Features\aaa_SampleFeature\Commands\Delete\.gitkeep" />
     <None Remove="Features\aaa_SampleFeature\Commands\Update\.gitkeep" />
@@ -40,7 +39,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\aaa_SampleFeature - Copy\Commands\Create\" />
     <Folder Include="Features\aaa_SampleFeature\Commands\Create\" />
     <Folder Include="Features\aaa_SampleFeature\Commands\Delete\" />
     <Folder Include="Features\aaa_SampleFeature\Commands\Update\" />
