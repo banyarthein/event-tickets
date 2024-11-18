@@ -1,8 +1,14 @@
-﻿using GlobalEvents.Domain.Common;
+﻿using GlobalEvents.Domain.Entities;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace GlobalEvents.Domain.Entities
+namespace GlobalEvents.Application.Features.Events.Commands.UpdateEvent
 {
-    public class Event : AuditableEntity
+    public class UpdateEventCommand: IRequest<Event>
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
@@ -12,7 +18,5 @@ namespace GlobalEvents.Domain.Entities
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public Guid CategoryId { get; set; }
-        public Category Category { get; set; } = default!;
-
     }
 }

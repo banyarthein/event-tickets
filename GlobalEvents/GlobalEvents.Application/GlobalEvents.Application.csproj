@@ -30,6 +30,8 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
     <PackageReference Include="MediatR" Version="12.4.1" />
   </ItemGroup>
 
@@ -47,9 +49,6 @@
     <Folder Include="Features\Categories\Commands\Create\" />
     <Folder Include="Features\Categories\Commands\Delete\" />
     <Folder Include="Features\Categories\Commands\Update\" />
-    <Folder Include="Features\Events\Commands\CreateEvent\" />
-    <Folder Include="Features\Events\Commands\DeleteEvent\" />
-    <Folder Include="Features\Events\Commands\UpdateEvent\" />
     <Folder Include="Features\Orders\Commands\Create\" />
     <Folder Include="Features\Orders\Commands\Delete\" />
     <Folder Include="Features\Orders\Commands\Update\" />
