@@ -44,7 +44,6 @@
     <Folder Include="Features\aaa_SampleFeature\Commands\Update\" />
     <Folder Include="Features\aaa_SampleFeature\Queries\GetDetails\" />
     <Folder Include="Features\aaa_SampleFeature\Queries\GetList\" />
-    <Folder Include="Features\Categories\Commands\Create\" />
     <Folder Include="Features\Categories\Commands\Delete\" />
     <Folder Include="Features\Categories\Commands\Update\" />
     <Folder Include="Features\Orders\Commands\Create\" />
