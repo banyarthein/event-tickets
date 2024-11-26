@@ -1,4 +1,4 @@
-﻿namespace GlobalEvents.Application.Features.Categories.Commands.Create
+﻿namespace GlobalEvents.Application.Features.Categories.Commands.CreateCategory
 {
     public class CreateCategoryModel
     {

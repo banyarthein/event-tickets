@@ -12,9 +12,9 @@
     <None Remove="Features\aaa_SampleFeature\Commands\Update\.gitkeep" />
     <None Remove="Features\aaa_SampleFeature\Queries\GetDetails\.gitkeep" />
     <None Remove="Features\aaa_SampleFeature\Queries\GetList\.gitkeep" />
-    <None Remove="Features\Categories\Commands\Create\.gitkeep" />
-    <None Remove="Features\Categories\Commands\Delete\.gitkeep" />
-    <None Remove="Features\Categories\Commands\Update\.gitkeep" />
+    <None Remove="Features\Categories\Commands\CreateCategory\.gitkeep" />
+    <None Remove="Features\Categories\Commands\DeleteCategory\.gitkeep" />
+    <None Remove="Features\Categories\Commands\UpdateCategory\.gitkeep" />
     <None Remove="Features\Categories\Queries\GetCategoryDetails\.gitkeep" />
     <None Remove="Features\Categories\Queries\GetCategoryListWithEvents\.gitkeep" />
     <None Remove="Features\Events\Commands\CreateEvent\.gitkeep" />
@@ -44,7 +44,6 @@
     <Folder Include="Features\aaa_SampleFeature\Commands\Update\" />
     <Folder Include="Features\aaa_SampleFeature\Queries\GetDetails\" />
     <Folder Include="Features\aaa_SampleFeature\Queries\GetList\" />
-    <Folder Include="Features\Categories\Commands\Delete\" />
     <Folder Include="Features\Orders\Commands\Create\" />
     <Folder Include="Features\Orders\Commands\Delete\" />
     <Folder Include="Features\Orders\Commands\Update\" />

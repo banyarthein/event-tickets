@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
 using GlobalEvents.Application.Interface.Persistence;
 
-namespace GlobalEvents.Application.Features.Categories.Commands.Create
+namespace GlobalEvents.Application.Features.Categories.Commands.CreateCategory
 {
-    public class CreateCategoryCommandValidator: AbstractValidator<CreateCategoryCommand>
+    public class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
     {
         private ICategoryRepo _categoryRepo;
 

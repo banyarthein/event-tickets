@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace GlobalEvents.Application.Features.Categories.Commands.Create
+namespace GlobalEvents.Application.Features.Categories.Commands.CreateCategory
 {
     public class CreateCategoryCommand : IRequest<CreateCategoryCommandResponse>
     {

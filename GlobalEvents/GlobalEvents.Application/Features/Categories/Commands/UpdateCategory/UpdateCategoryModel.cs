@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GlobalEvents.Application.Features.Categories.Commands.Update
+namespace GlobalEvents.Application.Features.Categories.Commands.UpdateCategory
 {
-    public class UpdateCategoryCommandModel
+    public class UpdateCategoryModel
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
     }
 }
