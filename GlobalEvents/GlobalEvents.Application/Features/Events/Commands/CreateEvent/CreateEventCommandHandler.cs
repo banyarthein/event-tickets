@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using GlobalEvents.Application.Interface.Persistence;
 using GlobalEvents.Domain.Entities;
+using GlobalEvents.Application.Exceptions;
 using MediatR;
 
 
@@ -24,9 +25,9 @@ namespace GlobalEvents.Application.Features.Events.Commands.CreateEvent
             var validator = new CreateEventCommandValidator(_eventRepo);
             var validationResult = await validator.ValidateAsync(request);
 
-            if(validationResult.Errors.Count != 0)
+            if (validationResult != null && validationResult.Errors.Count != 0)
             {
-                throw new Exceptions.ValidationException(validationResult);
+                throw new ValidationException(validationResult);
             }
 
             singleEvent = await _eventRepo.AddAsync(singleEvent);

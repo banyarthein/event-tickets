@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using GlobalEvents.Application.Interface.Persistence;
 using GlobalEvents.Domain.Entities;
+using GlobalEvents.Application.Exceptions;
 using MediatR;
 
 namespace GlobalEvents.Application.Features.Events.Commands.UpdateEvent
@@ -18,6 +19,13 @@ namespace GlobalEvents.Application.Features.Events.Commands.UpdateEvent
 
         public async Task<Event> Handle(UpdateEventCommand request, CancellationToken cancellationToken)
         {
+            var validator = new UpdateEventCommandValidator(_eventRepo);
+            var validationResult = await validator.ValidateAsync(request);
+            if (validationResult != null && validationResult.Errors.Count != 0)
+            {
+                throw new ValidationException(validationResult);
+            }
+
             var eventToUpdate = await _eventRepo.GetByIdAsync(request.Id);
             if (eventToUpdate == null)
             {
@@ -25,7 +33,7 @@ namespace GlobalEvents.Application.Features.Events.Commands.UpdateEvent
             }
 
             _mapper.Map(request, eventToUpdate, typeof(UpdateEventCommand), typeof(Event));
-            var singleEvent = _mapper.Map<Event>(request);
+
 
             var updatedEvent = await _eventRepo.UpdateAsync(eventToUpdate);
 
