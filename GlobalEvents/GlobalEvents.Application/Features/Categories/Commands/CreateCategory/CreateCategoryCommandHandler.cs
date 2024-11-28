@@ -18,29 +18,29 @@ namespace GlobalEvents.Application.Features.Categories.Commands.CreateCategory
 
         public async Task<CreateCategoryCommandResponse> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
-            var createCategoryCommandResponse = new CreateCategoryCommandResponse();
+            var response = new CreateCategoryCommandResponse();
 
             var validator = new CreateCategoryCommandValidator(_categoryRepo);
             var validationResult = await validator.ValidateAsync(request);
 
             if (validationResult.Errors.Count > 0)
             {
-                createCategoryCommandResponse.Success = false;
-                createCategoryCommandResponse.ValidationErrors = new List<string>();
+                response.Success = false;
+                response.ValidationErrors = new List<string>();
 
                 foreach (var error in validationResult.Errors)
                 {
-                    createCategoryCommandResponse.ValidationErrors.Add(error.ErrorMessage);
+                    response.ValidationErrors.Add(error.ErrorMessage);
                 }
             }
-            if (createCategoryCommandResponse.Success)
+            if (response.Success)
             {
                 var category = new Category() { Name = request.Name };
                 category = await _categoryRepo.AddAsync(category);
-                createCategoryCommandResponse.Category = _mapper.Map<CreateCategoryModel>(category);
+                response.Category = _mapper.Map<CreateCategoryModel>(category);
             }
 
-            return createCategoryCommandResponse;
+            return response;
         }
     }
 }

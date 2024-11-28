@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using GlobalEvents.Application.Features.Events.Commands.CreateEvent;
 using GlobalEvents.Application.Interface.Persistence;
 
 namespace GlobalEvents.Application.Features.Events.Commands.UpdateEvent
@@ -24,7 +23,7 @@ namespace GlobalEvents.Application.Features.Events.Commands.UpdateEvent
                 .GreaterThan(DateTime.Now);
 
             RuleFor(p => p)
-                .MustAsync(EventNameAndDateUnique)
+                .MustAsync(IsEventNameAndDateUnique)
                 .WithMessage("An event with the same name and date already exists.");
 
 
@@ -34,7 +33,7 @@ namespace GlobalEvents.Application.Features.Events.Commands.UpdateEvent
 
         }
 
-        private async Task<bool> EventNameAndDateUnique(UpdateEventCommand e, CancellationToken token)
+        private async Task<bool> IsEventNameAndDateUnique(UpdateEventCommand e, CancellationToken token)
         {
             return !await _eventRepo.IsEventNameAndDateUniqueAsync(e.Name, e.Date);
         }

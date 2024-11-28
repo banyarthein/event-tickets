@@ -3,11 +3,6 @@ using GlobalEvents.Application.Exceptions;
 using GlobalEvents.Application.Interface.Persistence;
 using GlobalEvents.Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GlobalEvents.Application.Features.Categories.Commands.UpdateCategory
 {
@@ -28,21 +23,23 @@ namespace GlobalEvents.Application.Features.Categories.Commands.UpdateCategory
             var validator = new UpdateCategoryCommandValidator(_categoryRepo);
             var validationResult = await validator.ValidateAsync(request);
 
-            if (validationResult!= null && validationResult.Errors.Count > 0)
+            if (validationResult != null && validationResult.Errors.Count > 0)
             {
+                response.Success = false;
                 throw new ValidationException(validationResult);
             }
 
             var categoryToUpdate = await _categoryRepo.GetByIdAsync(request.Id);
             if (categoryToUpdate == null)
             {
+                response.Success = false;
                 throw new NotFoundException(nameof(UpdateCategoryCommand), request.Id);
             }
 
             _mapper.Map(request, categoryToUpdate, typeof(UpdateCategoryCommand), typeof(Category));
 
             var categoryUpdated = await _categoryRepo.UpdateAsync(categoryToUpdate);
-            
+
             response.Category = _mapper.Map<UpdateCategoryModel>(categoryUpdated);
 
             response.Success = true;
