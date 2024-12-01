@@ -2,7 +2,7 @@
 
 namespace GlobalEvents.Application.Interface.Persistence
 {
-    public interface ICategoryRepo : IAsyncRepo<Category>
+    public interface ICategoryRepo : IAsyncRepository<Category>
     {
         Task<List<Category>> GetCategoriesWithEventsAsync(bool includePastEvents);
 

@@ -2,7 +2,7 @@
 
 namespace GlobalEvents.Application.Interface.Persistence
 {
-    public interface IOrderRepo : IAsyncRepo<Order>
+    public interface IOrderRepo : IAsyncRepository<Order>
     {
     }
 }

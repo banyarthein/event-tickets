@@ -1,6 +1,6 @@
 ﻿namespace GlobalEvents.Application.Interface.Persistence
 {
-    public interface IAsyncRepo<T> where T : class
+    public interface IAsyncRepository<T> where T : class
     {
         Task<T> GetByIdAsync(Guid id);
         Task<IReadOnlyList<T>> ListAllAsync();

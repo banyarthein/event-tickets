@@ -2,7 +2,7 @@
 
 namespace GlobalEvents.Application.Interface.Persistence
 {
-    public interface IEventRepo : IAsyncRepo<Event>
+    public interface IEventRepo : IAsyncRepository<Event>
     {
         Task<bool> IsEventNameAndDateUniqueAsync(string name, DateTime date);
     }
