@@ -31,6 +31,7 @@ namespace GlobalEvents.Application.Features.Events.Commands.CreateEvent
                 .NotEmpty().WithMessage("{PropertyName} is requried.")
                 .GreaterThan(0);
 
+
         }
 
         private async Task<bool> EventNameAndDateUnique(CreateEventCommand e, CancellationToken token)

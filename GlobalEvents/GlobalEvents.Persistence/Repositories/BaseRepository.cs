@@ -1,11 +1,12 @@
-﻿using GlobalEvents.Application.Interface.Persistence;
+﻿using GlobalEvents.Application.Exceptions;
+using GlobalEvents.Application.Interface.Persistence;
+using GlobalEvents.Persistence;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GlobalEvents.Persistence;
-using Microsoft.EntityFrameworkCore;
 
 namespace GlobalEvents.Persistence.Repositories
 {
@@ -21,7 +22,13 @@ namespace GlobalEvents.Persistence.Repositories
 
         public async Task<T> GetByIdAsync(Guid id)
         {
-            return await _dbContext.Set<T>().FindAsync(id);
+            var result = await _dbContext.Set<T>().FindAsync(id);
+            if (result == null)
+            {
+                throw new NotFoundException(typeof(T).Name, id);
+            }
+
+            return result;
         }
 
 
@@ -43,9 +50,12 @@ namespace GlobalEvents.Persistence.Repositories
             return entity;
         }
 
-        public Task<T> UpdateAsync(T entity)
+        public async Task<T> UpdateAsync(T entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Entry(entity).State = EntityState.Modified;
+            await _dbContext.SaveChangesAsync();
+            await _dbContext.Entry(entity).ReloadAsync();
+            return entity;
         }
 
         public async Task<bool> DeleteAsync(T entity)
@@ -59,10 +69,10 @@ namespace GlobalEvents.Persistence.Repositories
                 return (rowEffected != 0);
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 isOk = false;
-            }   
+            }
 
             return isOk;
         }

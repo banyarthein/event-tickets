@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
+using GlobalEvents.Application.Exceptions;
 using GlobalEvents.Application.Interface.Persistence;
 using GlobalEvents.Domain.Entities;
-using GlobalEvents.Application.Exceptions;
 using MediatR;
 
 
 namespace GlobalEvents.Application.Features.Events.Commands.CreateEvent
 {
-    public class CreateEventCommandHandler: IRequestHandler<CreateEventCommand, Event>
+    public class CreateEventCommandHandler : IRequestHandler<CreateEventCommand, Event>
     {
         private readonly Mapper _mapper;
         private readonly IEventRepo _eventRepo;
@@ -32,6 +32,7 @@ namespace GlobalEvents.Application.Features.Events.Commands.CreateEvent
 
             singleEvent = await _eventRepo.AddAsync(singleEvent);
             return singleEvent;
+
         }
     }
 }

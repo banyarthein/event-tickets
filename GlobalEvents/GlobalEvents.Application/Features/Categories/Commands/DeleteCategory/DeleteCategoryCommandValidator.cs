@@ -3,7 +3,7 @@ using GlobalEvents.Application.Interface.Persistence;
 
 namespace GlobalEvents.Application.Features.Categories.Commands.DeleteCategory
 {
-    public class DeleteCategoryCommandValidator: AbstractValidator<DeleteCategoryCommand>
+    public class DeleteCategoryCommandValidator : AbstractValidator<DeleteCategoryCommand>
     {
         ICategoryRepo _categoryRepo;
 
@@ -19,7 +19,7 @@ namespace GlobalEvents.Application.Features.Categories.Commands.DeleteCategory
 
         private async Task<bool> IsCategoryInUse(DeleteCategoryCommand e, CancellationToken token)
         {
-            return (!(await _categoryRepo.IsCategoryInUseAsync(e.Id)));
+            return (!(await _categoryRepo.IsCategoryInUse(e.Id)));
         }
     }
 }

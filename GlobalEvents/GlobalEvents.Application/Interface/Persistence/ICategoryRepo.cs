@@ -6,6 +6,6 @@ namespace GlobalEvents.Application.Interface.Persistence
     {
         Task<List<Category>> GetCategoriesWithEventsAsync(bool includePastEvents);
 
-        Task<bool> IsCategoryInUseAsync(Guid Id);
+        Task<bool> IsCategoryInUse(Guid Id);
     }
 }
