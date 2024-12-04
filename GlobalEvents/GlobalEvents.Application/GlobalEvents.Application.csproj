@@ -20,9 +20,9 @@
     <None Remove="Features\Events\Commands\CreateEvent\.gitkeep" />
     <None Remove="Features\Events\Commands\DeleteEvent\.gitkeep" />
     <None Remove="Features\Events\Commands\UpdateEvent\.gitkeep" />
-    <None Remove="Features\Orders\Commands\Create\.gitkeep" />
-    <None Remove="Features\Orders\Commands\Delete\.gitkeep" />
-    <None Remove="Features\Orders\Commands\Update\.gitkeep" />
+    <None Remove="Features\Orders\Commands\CreateOrder\.gitkeep" />
+    <None Remove="Features\Orders\Commands\DeleteOrder\.gitkeep" />
+    <None Remove="Features\Orders\Commands\UpdateOrder\.gitkeep" />
     <None Remove="Features\Orders\Queries\GetDetails\.gitkeep" />
     <None Remove="Features\Orders\Queries\GetList\.gitkeep" />
   </ItemGroup>
@@ -44,9 +44,8 @@
     <Folder Include="Features\aaa_SampleFeature\Commands\Update\" />
     <Folder Include="Features\aaa_SampleFeature\Queries\GetDetails\" />
     <Folder Include="Features\aaa_SampleFeature\Queries\GetList\" />
-    <Folder Include="Features\Orders\Commands\Create\" />
-    <Folder Include="Features\Orders\Commands\Delete\" />
-    <Folder Include="Features\Orders\Commands\Update\" />
+    <Folder Include="Features\Orders\Commands\DeleteOrder\" />
+    <Folder Include="Features\Orders\Commands\UpdateOrder\" />
     <Folder Include="Features\Orders\Queries\GetDetails\" />
     <Folder Include="Features\Orders\Queries\GetList\" />
   </ItemGroup>
