@@ -1,6 +1,6 @@
-﻿namespace GlobalEvents.Application.Features.Orders.Commands.CreateOrder
+﻿namespace GlobalEvents.Application.Features.Orders.Commands.UpdateOrder
 {
-    public class CreateOrderModel
+    public class UpdateOrderModel
     {
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
@@ -9,6 +9,5 @@
         public decimal OrderTotal { get; set; } = 0;
         public bool OrderPaid { get; set; } = false;
         public DateTime OrderPlaced { get; set; }
-
     }
 }

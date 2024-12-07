@@ -1,12 +1,6 @@
 ﻿using GlobalEvents.Application.Exceptions;
 using GlobalEvents.Application.Interface.Persistence;
-using GlobalEvents.Persistence;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GlobalEvents.Persistence.Repositories
 {

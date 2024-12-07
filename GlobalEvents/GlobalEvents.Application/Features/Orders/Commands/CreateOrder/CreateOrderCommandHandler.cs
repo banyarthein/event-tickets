@@ -1,11 +1,7 @@
 ﻿using AutoMapper;
 using GlobalEvents.Application.Interface.Persistence;
+using GlobalEvents.Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GlobalEvents.Application.Features.Orders.Commands.CreateOrder
 {
@@ -22,7 +18,26 @@ namespace GlobalEvents.Application.Features.Orders.Commands.CreateOrder
 
         public async Task<CreateOrderCommandResponse> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var response = new CreateOrderCommandResponse();
+
+            var validator = new CreateOrderCommandValidator();
+            var results = await validator.ValidateAsync(request);
+
+            if (results.Errors.Count > 0)
+            {
+                response.Success = false;
+                response.ValidationErrors = results.Errors.Select(e => e.ErrorMessage).ToList();
+                return response;
+            }
+
+
+            var order = _mapper.Map<Order>(request.CreateOrderModel);
+            order = await _orderRepo.AddAsync(order);
+            response.CreateOrderModel = _mapper.Map<CreateOrderModel>(order);
+            response.Success = true;
+            
+
+            return response;
         }
     }
 }

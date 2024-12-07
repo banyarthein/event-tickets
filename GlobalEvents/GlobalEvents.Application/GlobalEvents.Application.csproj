@@ -45,7 +45,6 @@
     <Folder Include="Features\aaa_SampleFeature\Queries\GetDetails\" />
     <Folder Include="Features\aaa_SampleFeature\Queries\GetList\" />
     <Folder Include="Features\Orders\Commands\DeleteOrder\" />
-    <Folder Include="Features\Orders\Commands\UpdateOrder\" />
     <Folder Include="Features\Orders\Queries\GetDetails\" />
     <Folder Include="Features\Orders\Queries\GetList\" />
   </ItemGroup>
