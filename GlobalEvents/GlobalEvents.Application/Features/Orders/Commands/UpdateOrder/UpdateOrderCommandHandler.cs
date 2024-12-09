@@ -5,7 +5,7 @@ using MediatR;
 
 namespace GlobalEvents.Application.Features.Orders.Commands.UpdateOrder
 {
-    public class UpdateOrderCommandHandler: IRequestHandler<UpdateOrderCommand, UpdateOrderCommandResponse>
+    public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, UpdateOrderCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IOrderRepo _orderRepo;
@@ -30,7 +30,7 @@ namespace GlobalEvents.Application.Features.Orders.Commands.UpdateOrder
                 return response;
             }
 
-            var orderToUpdate = await _orderRepo.GetByIdAsync(request.UpdateOrderModel.Id);
+            var orderToUpdate = await _orderRepo.GetByIdAsync(request.Id);
             if (orderToUpdate == null)
             {
                 response.Success = false;

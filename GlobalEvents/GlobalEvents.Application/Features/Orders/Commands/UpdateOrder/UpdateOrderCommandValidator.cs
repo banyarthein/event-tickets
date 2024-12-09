@@ -1,13 +1,17 @@
 ﻿using FluentValidation;
+using GlobalEvents.Application.Interface.Persistence;
 
 namespace GlobalEvents.Application.Features.Orders.Commands.UpdateOrder
 {
-    public class UpdateOrderCommandValidator: AbstractValidator<UpdateOrderCommand>
+    public class UpdateOrderCommandValidator : AbstractValidator<UpdateOrderCommand>
     {
         public UpdateOrderCommandValidator()
         {
             RuleFor(p => p.UpdateOrderModel.Id)
                 .NotNull().WithMessage("{PropertyName} is required.");
+
+            RuleFor(p => p.Id)
+                .MustAsync(isValidId).WithMessage("{PropertyName} to delete was not found");
 
 
             RuleFor(p => p.UpdateOrderModel.EventId)
@@ -36,6 +40,13 @@ namespace GlobalEvents.Application.Features.Orders.Commands.UpdateOrder
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull()
                 .GreaterThan(0).WithMessage("{PropertyName} should be valid number and greater than 0.");
+        }
+
+
+        private async Task<bool> isValidId(Guid id, CancellationToken token)
+        {
+            var foundObject = await _orderRepo.GetByIdAsync(id);
+            return (foundObject != null);
         }
     }
 }
