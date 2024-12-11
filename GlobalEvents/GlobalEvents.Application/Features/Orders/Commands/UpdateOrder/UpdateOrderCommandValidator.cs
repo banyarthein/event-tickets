@@ -1,12 +1,20 @@
-﻿using FluentValidation;
+﻿using AutoMapper;
+using FluentValidation;
 using GlobalEvents.Application.Interface.Persistence;
 
 namespace GlobalEvents.Application.Features.Orders.Commands.UpdateOrder
 {
     public class UpdateOrderCommandValidator : AbstractValidator<UpdateOrderCommand>
     {
-        public UpdateOrderCommandValidator()
+        private readonly IMapper _mapper;
+        private readonly IOrderRepo _orderRepo;
+
+        public UpdateOrderCommandValidator(IMapper mapper, IOrderRepo orderRepo)
         {
+
+            _mapper = mapper;
+            _orderRepo = orderRepo;
+
             RuleFor(p => p.UpdateOrderModel.Id)
                 .NotNull().WithMessage("{PropertyName} is required.");
 
@@ -45,8 +53,7 @@ namespace GlobalEvents.Application.Features.Orders.Commands.UpdateOrder
 
         private async Task<bool> isValidId(Guid id, CancellationToken token)
         {
-            var foundObject = await _orderRepo.GetByIdAsync(id);
-            return (foundObject != null);
+            return await _orderRepo.IsIDExists(id);
         }
     }
 }

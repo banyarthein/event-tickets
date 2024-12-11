@@ -16,6 +16,7 @@ namespace GlobalEvents.Persistence
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
             services.AddScoped<ICategoryRepo, CategoryRepo>();
             services.AddScoped<IEventRepo, EventRepo>();
+            services.AddScoped<IOrderRepo, OrderRepo>();
 
             return services;
         }

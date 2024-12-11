@@ -35,8 +35,7 @@ namespace GlobalEvents.Application.Features.Orders.Commands.DeleteOrder
 
         private async Task<bool> isValidId(Guid id, CancellationToken token)
         {
-            var foundObject = await _orderRepo.GetByIdAsync(id);
-            return (foundObject != null);
+            return await _orderRepo.IsIDExists(id);
         }
 
     }

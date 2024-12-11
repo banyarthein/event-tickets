@@ -20,7 +20,7 @@ namespace GlobalEvents.Application.Features.Orders.Commands.UpdateOrder
         {
             var response = new UpdateOrderCommandResponse();
 
-            var validator = new UpdateOrderCommandValidator();
+            var validator = new UpdateOrderCommandValidator(_mapper, _orderRepo);
             var results = await validator.ValidateAsync(request);
 
             if (results.Errors.Count > 0)

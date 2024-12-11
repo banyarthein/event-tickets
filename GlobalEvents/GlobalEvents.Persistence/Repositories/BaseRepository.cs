@@ -13,6 +13,11 @@ namespace GlobalEvents.Persistence.Repositories
             _dbContext = dbContext;
         }
 
+        public async Task<bool> IsIDExists(Guid id)
+        {
+            var result = await _dbContext.Set<T>().FindAsync(id);
+            return (result != null);
+        }
 
         public async Task<T> GetByIdAsync(Guid id)
         {
