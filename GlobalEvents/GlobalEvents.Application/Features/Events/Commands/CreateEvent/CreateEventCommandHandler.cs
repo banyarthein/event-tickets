@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using GlobalEvents.Application.Exceptions;
+using GlobalEvents.Application.Interface.Infrastructure;
 using GlobalEvents.Application.Interface.Persistence;
+using GlobalEvents.Application.Model.Mail;
 using GlobalEvents.Domain.Entities;
 using MediatR;
 
@@ -11,11 +13,13 @@ namespace GlobalEvents.Application.Features.Events.Commands.CreateEvent
     {
         private readonly Mapper _mapper;
         private readonly IEventRepo _eventRepo;
+        private readonly IEmailService _emailService;
 
-        public CreateEventCommandHandler(Mapper mapper, IEventRepo eventRepo)
+        public CreateEventCommandHandler(Mapper mapper, IEventRepo eventRepo, IEmailService emailService)
         {
             _mapper = mapper;
             _eventRepo = eventRepo;
+            _emailService = emailService;
         }
 
         public async Task<Event> Handle(CreateEventCommand request, CancellationToken cancellationToken)
@@ -31,6 +35,24 @@ namespace GlobalEvents.Application.Features.Events.Commands.CreateEvent
             }
 
             singleEvent = await _eventRepo.AddAsync(singleEvent);
+
+            var email = new Email
+            {
+                To = "banyar.lanwork@gmail.com",
+                Cc = "banyarthein.mm@gmail.com",
+                Subject = $"New Event ({singleEvent.Name}) was Created",
+                Body = $"A new event has been created: {singleEvent.Name}"
+            };
+
+            try
+            {
+                await _emailService.SendEmail(email);
+            }
+            catch (Exception ex)
+            {
+                //Do nothing for now
+            }
+
             return singleEvent;
 
         }
