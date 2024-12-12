@@ -36,12 +36,20 @@ namespace GlobalEvents.Application.Features.Events.Commands.CreateEvent
 
             singleEvent = await _eventRepo.AddAsync(singleEvent);
 
+            await SendEmail(singleEvent);
+
+            return singleEvent;
+
+        }
+
+        private async Task<bool> SendEmail(Event item)
+        {
             var email = new Email
             {
                 To = "banyar.lanwork@gmail.com",
                 Cc = "banyarthein.mm@gmail.com",
-                Subject = $"New Event ({singleEvent.Name}) was Created",
-                Body = $"A new event has been created: {singleEvent.Name}"
+                Subject = $"New Event ({item.Name}) was Created",
+                Body = $"A new event has been created: {item.Name}"
             };
 
             try
@@ -51,10 +59,10 @@ namespace GlobalEvents.Application.Features.Events.Commands.CreateEvent
             catch (Exception ex)
             {
                 //Do nothing for now
+                return false;
             }
-
-            return singleEvent;
-
+            //Send email
+            return true;
         }
     }
 }
