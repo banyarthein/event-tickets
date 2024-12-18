@@ -1,0 +1,6 @@
+@GlobalEvents.API_HostAddress = http://localhost:5160
+
+GET {{GlobalEvents.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
