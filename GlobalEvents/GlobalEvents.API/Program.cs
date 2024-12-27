@@ -2,8 +2,6 @@ using GlobalEvents.API;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-
 var app = builder
             .ConfigureServices()
             .ConfigurePipeLine();
@@ -31,7 +29,7 @@ app.MapGet("/weatherforecast", () =>
 
 app.Run();
 
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+internal record WeatherForecast(DateOnly Date, int TemperatureC, string Summary)
 {
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }

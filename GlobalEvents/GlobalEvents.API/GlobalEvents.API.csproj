@@ -8,6 +8,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
@@ -15,6 +19,10 @@
     <ProjectReference Include="..\GlobalEvents.Application\GlobalEvents.Application.csproj" />
     <ProjectReference Include="..\GlobalEvents.Infrastructure\GlobalEvents.Infrastructure.csproj" />
     <ProjectReference Include="..\GlobalEvents.Persistence\GlobalEvents.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="EndPoints\" />
   </ItemGroup>
 
 </Project>

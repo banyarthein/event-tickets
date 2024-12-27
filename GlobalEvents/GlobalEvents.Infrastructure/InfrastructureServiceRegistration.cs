@@ -12,7 +12,7 @@ namespace GlobalEvents.Infrastructure
         {
             services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
 
-            services.AddTransient<IEmailService, EmailService>();
+            services.AddTransient<IEmailService, PostMarkEmailService>();
 
             return services;
         }

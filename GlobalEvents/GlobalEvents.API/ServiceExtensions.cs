@@ -4,7 +4,7 @@ using GlobalEvents.Persistence;
 
 namespace GlobalEvents.API
 {
-    public static class StartupExtensions
+    public static class ServiceExtensions
     {
         public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
         {
@@ -15,7 +15,6 @@ namespace GlobalEvents.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
 
             builder.Services.AddApplicationServices();
             builder.Services.AddInfrastructureServices(builder.Configuration);
@@ -55,5 +54,7 @@ namespace GlobalEvents.API
 
             return app;
         }
+
+
     }
 }

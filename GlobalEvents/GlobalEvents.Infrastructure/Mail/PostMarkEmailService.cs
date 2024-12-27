@@ -5,11 +5,11 @@ using PostmarkDotNet;
 
 namespace GlobalEvents.Infrastructure.Mail
 {
-    public class EmailService : IEmailService
+    public class PostMarkEmailService : IEmailService
     {
         private EmailSettings emailSettings { get; }
 
-        public EmailService(IOptions<EmailSettings> mailSettings)
+        public PostMarkEmailService(IOptions<EmailSettings> mailSettings)
         {
             this.emailSettings = mailSettings.Value;
         }
@@ -21,6 +21,7 @@ namespace GlobalEvents.Infrastructure.Mail
             var message = new PostmarkMessage
             {
                 From = emailSettings.FromAddress,
+                TrackOpens = true,
                 To = email.To,
                 Subject = email.Subject,
                 HtmlBody = email.Body,
