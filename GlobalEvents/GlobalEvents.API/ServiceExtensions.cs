@@ -11,10 +11,7 @@ namespace GlobalEvents.API
             //app.Services.AddEndpointsApiExplorer();
             //app.Services.AddSwaggerGen();
 
-            // Add services to the container.
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+
 
             builder.Services.AddApplicationServices();
             builder.Services.AddInfrastructureServices(builder.Configuration);
@@ -34,6 +31,10 @@ namespace GlobalEvents.API
                                             )
                                     );
 
+            // Add services to the container.
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
 
             return builder.Build();
 

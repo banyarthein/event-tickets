@@ -8,10 +8,10 @@ namespace GlobalEvents.Application.Features.Events.Commands.UpdateEvent
 {
     public class UpdateEventCommandHandler: IRequestHandler<UpdateEventCommand, Event>
     {
-        private readonly Mapper _mapper;
+        private readonly IMapper _mapper;
         private readonly IEventRepo _eventRepo;
 
-        public UpdateEventCommandHandler(Mapper mapper, IEventRepo eventRepo)
+        public UpdateEventCommandHandler(IMapper mapper, IEventRepo eventRepo)
         {
             _mapper = mapper;
             _eventRepo = eventRepo;

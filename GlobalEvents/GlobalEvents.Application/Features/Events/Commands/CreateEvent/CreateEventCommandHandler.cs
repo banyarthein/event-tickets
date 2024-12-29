@@ -11,11 +11,11 @@ namespace GlobalEvents.Application.Features.Events.Commands.CreateEvent
 {
     public class CreateEventCommandHandler : IRequestHandler<CreateEventCommand, Event>
     {
-        private readonly Mapper _mapper;
+        private readonly IMapper _mapper;
         private readonly IEventRepo _eventRepo;
         private readonly IEmailService _emailService;
 
-        public CreateEventCommandHandler(Mapper mapper, IEventRepo eventRepo, IEmailService emailService)
+        public CreateEventCommandHandler(IMapper mapper, IEventRepo eventRepo, IEmailService emailService)
         {
             _mapper = mapper;
             _eventRepo = eventRepo;

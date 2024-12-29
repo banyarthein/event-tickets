@@ -7,19 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Features\aaa_SampleFeature\Commands\Create\.gitkeep" />
-    <None Remove="Features\aaa_SampleFeature\Commands\Delete\.gitkeep" />
-    <None Remove="Features\aaa_SampleFeature\Commands\Update\.gitkeep" />
-    <None Remove="Features\aaa_SampleFeature\Queries\GetDetails\.gitkeep" />
-    <None Remove="Features\aaa_SampleFeature\Queries\GetList\.gitkeep" />
     <None Remove="Features\Categories\Commands\CreateCategory\.gitkeep" />
     <None Remove="Features\Categories\Commands\DeleteCategory\.gitkeep" />
     <None Remove="Features\Categories\Commands\UpdateCategory\.gitkeep" />
     <None Remove="Features\Categories\Queries\GetCategoryDetails\.gitkeep" />
     <None Remove="Features\Categories\Queries\GetCategoryListWithEvents\.gitkeep" />
-    <None Remove="Features\Events\Commands\CreateEvent\.gitkeep" />
     <None Remove="Features\Events\Commands\DeleteEvent\.gitkeep" />
-    <None Remove="Features\Events\Commands\UpdateEvent\.gitkeep" />
     <None Remove="Features\Orders\Commands\CreateOrder\.gitkeep" />
     <None Remove="Features\Orders\Commands\DeleteOrder\.gitkeep" />
     <None Remove="Features\Orders\Commands\UpdateOrder\.gitkeep" />
@@ -28,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />    
     <PackageReference Include="FluentValidation" Version="11.11.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
     <PackageReference Include="MediatR" Version="12.4.1" />
@@ -39,11 +32,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\aaa_SampleFeature\Commands\Create\" />
-    <Folder Include="Features\aaa_SampleFeature\Commands\Delete\" />
-    <Folder Include="Features\aaa_SampleFeature\Commands\Update\" />
-    <Folder Include="Features\aaa_SampleFeature\Queries\GetDetails\" />
-    <Folder Include="Features\aaa_SampleFeature\Queries\GetList\" />
     <Folder Include="Features\Orders\Queries\GetDetails\" />
     <Folder Include="Features\Orders\Queries\GetList\" />
   </ItemGroup>
