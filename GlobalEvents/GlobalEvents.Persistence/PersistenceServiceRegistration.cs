@@ -11,7 +11,7 @@ namespace GlobalEvents.Persistence
         public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<GlobalEventDbContext>(options =>
-                           options.UseSqlServer(configuration.GetConnectionString("GlobalEventsDbConnection")));
+                           options.UseSqlServer(configuration.GetConnectionString("GlobalEventsConnectionStrings")));
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
             services.AddScoped<ICategoryRepo, CategoryRepo>();
