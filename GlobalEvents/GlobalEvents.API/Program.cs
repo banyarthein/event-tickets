@@ -7,6 +7,8 @@ var app = builder
             .ConfigureServices()
             .ConfigurePipeLine();
 
-app.MapEventEndPoints();
+await app.MigrateDataAsync();
+
+app.EventEndPointsMapping();
 
 app.Run();

@@ -9,7 +9,7 @@
 
 
 
-        public static void MapEventEndPoints(this WebApplication app)
+        public static void EventEndPointsMapping(this WebApplication app)
         {
 
             var summaries = new[]

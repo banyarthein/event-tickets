@@ -13,7 +13,7 @@ namespace GlobalEvents.Persistence
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Event> Events { get; set; }
-        public DbSet<Order> GlobalEvents { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
         //sedding data to add through migration
         private readonly Guid concertGuid = Guid.Parse("{B0788D2F-8003-43C1-92A4-EDC76A7C5DDE}");

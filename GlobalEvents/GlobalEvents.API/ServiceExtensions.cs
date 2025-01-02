@@ -1,6 +1,7 @@
 ﻿using GlobalEvents.Application;
 using GlobalEvents.Infrastructure;
 using GlobalEvents.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace GlobalEvents.API
 {
@@ -55,6 +56,40 @@ namespace GlobalEvents.API
             app.UseHttpsRedirection();
 
             return app;
+        }
+
+        public static async Task MigrateDataAsync(this WebApplication app)
+        {
+            using var scope = app.Services.CreateScope();
+            {
+                var services = scope.ServiceProvider;
+                var logger = services.GetService<ILogger<Program>>();
+
+                try
+                {
+                    var context = services.GetRequiredService<GlobalEventDbContext>();
+                    if (context != null)
+                    {
+                        if (context.Database.EnsureCreated())
+                        {
+                            //Seed Additional Data
+                        }
+                        else
+                        {
+                            //await context.Database.MigrateAsync();
+                            //await ApplicationDbContextSeed.SeedSampleDataAsync(context, logger);
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (logger != null)
+                    {
+                        logger.LogError(ex, "An error occurred while migrating or seeding the database.");
+                    }
+                }
+            }
         }
 
     }

@@ -128,7 +128,7 @@ namespace GlobalEvents.Persistence.Migrations
                             Artist = "John Egbert",
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2025, 6, 30, 23, 39, 56, 103, DateTimeKind.Local).AddTicks(8744),
+                            Date = new DateTime(2025, 7, 2, 15, 45, 11, 407, DateTimeKind.Local).AddTicks(5628),
                             Description = "Join John for his farwell tour across 15 continents. John really needs no introduction since he has already mesmerized the world with his banjo.",
                             ImageUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/banjo.jpg",
                             Name = "John Egbert Live",
@@ -140,7 +140,7 @@ namespace GlobalEvents.Persistence.Migrations
                             Artist = "Michael Johnson",
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2025, 9, 30, 23, 39, 56, 127, DateTimeKind.Local).AddTicks(4624),
+                            Date = new DateTime(2025, 10, 2, 15, 45, 11, 408, DateTimeKind.Local).AddTicks(6248),
                             Description = "Michael Johnson doesn't need an introduction. His 25 concert across the globe last year were seen by thousands. Can we add you to the list?",
                             ImageUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/michael.jpg",
                             Name = "The State of Affairs: Michael Live!",
@@ -152,7 +152,7 @@ namespace GlobalEvents.Persistence.Migrations
                             Artist = "DJ 'The Mike'",
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2025, 4, 30, 23, 39, 56, 127, DateTimeKind.Local).AddTicks(4657),
+                            Date = new DateTime(2025, 5, 2, 15, 45, 11, 408, DateTimeKind.Local).AddTicks(6289),
                             Description = "DJs from all over the world will compete in this epic battle for eternal fame.",
                             ImageUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/dj.jpg",
                             Name = "Clash of the DJs",
@@ -164,7 +164,7 @@ namespace GlobalEvents.Persistence.Migrations
                             Artist = "Manuel Santinonisi",
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2025, 4, 30, 23, 39, 56, 127, DateTimeKind.Local).AddTicks(4748),
+                            Date = new DateTime(2025, 5, 2, 15, 45, 11, 408, DateTimeKind.Local).AddTicks(6305),
                             Description = "Get on the hype of Spanish Guitar concerts with Manuel.",
                             ImageUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/guitar.jpg",
                             Name = "Spanish guitar hits with Manuel",
@@ -176,7 +176,7 @@ namespace GlobalEvents.Persistence.Migrations
                             Artist = "Many",
                             CategoryId = new Guid("fe98f549-e790-4e9f-aa16-18c2292a2ee9"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2025, 10, 30, 23, 39, 56, 127, DateTimeKind.Local).AddTicks(4759),
+                            Date = new DateTime(2025, 11, 2, 15, 45, 11, 408, DateTimeKind.Local).AddTicks(6322),
                             Description = "The best tech conference in the world",
                             ImageUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/conf.jpg",
                             Name = "Techorama 2023",
@@ -188,7 +188,7 @@ namespace GlobalEvents.Persistence.Migrations
                             Artist = "Nick Sailor",
                             CategoryId = new Guid("6313179f-7837-473a-a4d5-a5571b43e6a6"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2025, 8, 30, 23, 39, 56, 127, DateTimeKind.Local).AddTicks(4774),
+                            Date = new DateTime(2025, 9, 2, 15, 45, 11, 408, DateTimeKind.Local).AddTicks(6350),
                             Description = "The critics are over the moon and so will you after you've watched this sing and dance extravaganza written by Nick Sailor, the man from 'My dad and sister'.",
                             ImageUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/musical.jpg",
                             Name = "To the Moon and Back",
@@ -234,7 +234,7 @@ namespace GlobalEvents.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GlobalEvents");
+                    b.ToTable("Orders");
 
                     b.HasData(
                         new
@@ -243,7 +243,7 @@ namespace GlobalEvents.Persistence.Migrations
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = new Guid("ee272f8b-6096-4cb6-8625-bb4bb2d89e8b"),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2024, 12, 30, 23, 39, 56, 128, DateTimeKind.Local).AddTicks(923),
+                            OrderPlaced = new DateTime(2025, 1, 2, 15, 45, 11, 409, DateTimeKind.Local).AddTicks(2105),
                             OrderTotal = 400,
                             TicketsCount = 5,
                             UserId = new Guid("a441eb40-9636-4ee6-be49-a66c5ec1330b")
@@ -254,7 +254,7 @@ namespace GlobalEvents.Persistence.Migrations
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = new Guid("adc42c09-08c1-4d2c-9f96-2d15bb1af299"),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2024, 12, 30, 23, 39, 56, 128, DateTimeKind.Local).AddTicks(1591),
+                            OrderPlaced = new DateTime(2025, 1, 2, 15, 45, 11, 409, DateTimeKind.Local).AddTicks(2553),
                             OrderTotal = 135,
                             TicketsCount = 2,
                             UserId = new Guid("ac3cfaf5-34fd-4e4d-bc04-ad1083ddc340")
@@ -265,7 +265,7 @@ namespace GlobalEvents.Persistence.Migrations
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = new Guid("62787623-4c52-43fe-b0c9-b7044fb5929b"),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2024, 12, 30, 23, 39, 56, 128, DateTimeKind.Local).AddTicks(1607),
+                            OrderPlaced = new DateTime(2025, 1, 2, 15, 45, 11, 409, DateTimeKind.Local).AddTicks(2571),
                             OrderTotal = 85,
                             TicketsCount = 1,
                             UserId = new Guid("d97a15fc-0d32-41c6-9ddf-62f0735c4c1c")
@@ -276,7 +276,7 @@ namespace GlobalEvents.Persistence.Migrations
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = new Guid("62787623-4c52-43fe-b0c9-b7044fb5929b"),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2024, 12, 30, 23, 39, 56, 128, DateTimeKind.Local).AddTicks(1617),
+                            OrderPlaced = new DateTime(2025, 1, 2, 15, 45, 11, 409, DateTimeKind.Local).AddTicks(2585),
                             OrderTotal = 245,
                             TicketsCount = 3,
                             UserId = new Guid("4ad901be-f447-46dd-bcf7-dbe401afa203")
@@ -287,7 +287,7 @@ namespace GlobalEvents.Persistence.Migrations
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = new Guid("b419a7ca-3321-4f38-be8e-4d7b6a529319"),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2024, 12, 30, 23, 39, 56, 128, DateTimeKind.Local).AddTicks(1628),
+                            OrderPlaced = new DateTime(2025, 1, 2, 15, 45, 11, 409, DateTimeKind.Local).AddTicks(2598),
                             OrderTotal = 142,
                             TicketsCount = 2,
                             UserId = new Guid("7aeb2c01-fe8e-4b84-a5ba-330bdf950f5c")
@@ -298,7 +298,7 @@ namespace GlobalEvents.Persistence.Migrations
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = new Guid("b419a7ca-3321-4f38-be8e-4d7b6a529319"),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2024, 12, 30, 23, 39, 56, 128, DateTimeKind.Local).AddTicks(1640),
+                            OrderPlaced = new DateTime(2025, 1, 2, 15, 45, 11, 409, DateTimeKind.Local).AddTicks(2616),
                             OrderTotal = 40,
                             TicketsCount = 1,
                             UserId = new Guid("f5a6a3a0-4227-4973-abb5-a63fbe725923")
@@ -309,7 +309,7 @@ namespace GlobalEvents.Persistence.Migrations
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = new Guid("3448d5a4-0f72-4dd7-bf15-c14a46b26c00"),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2024, 12, 30, 23, 39, 56, 128, DateTimeKind.Local).AddTicks(1650),
+                            OrderPlaced = new DateTime(2025, 1, 2, 15, 45, 11, 409, DateTimeKind.Local).AddTicks(2630),
                             OrderTotal = 116,
                             TicketsCount = 2,
                             UserId = new Guid("7aeb2c01-fe8e-4b84-a5ba-330bdf950f5c")
