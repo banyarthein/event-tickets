@@ -26,6 +26,8 @@ namespace GlobalEvents.Application.Profiles
 
             CreateMap<Category, CategoryEventModel>().ReverseMap();
             CreateMap<Category, CategoryEventListModel>().ReverseMap();
+            CreateMap<Category, CategoryModel>().ReverseMap();
+            
 
         }
 

@@ -2,6 +2,7 @@ using GlobalEvents.API;
 using GlobalEvents.API.EndPoints;
 
 var builder = WebApplication.CreateBuilder(args);
+string routingRoot = "/api/";
 
 var app = builder
             .ConfigureServices()
@@ -9,6 +10,8 @@ var app = builder
 
 await app.MigrateDataAsync();
 
-app.EventEndPointsMapping();
+
+
+app.EventEndPointsMapping(routingRoot, "Events");
 
 app.Run();
