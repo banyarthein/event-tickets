@@ -54,7 +54,7 @@ namespace GlobalEvents.API.EndPoints
             }
             catch (ValidationException ex)
             {
-                return Results.Problem(ex.ValidationErrors.FirstOrDefault().ToString());
+                return Results.Problem(ex.ValidationErrors.FirstOrDefault());
             }
         }
 
