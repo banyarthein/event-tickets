@@ -71,12 +71,11 @@ namespace GlobalEvents.API.EndPoints
 
 
 
-        private async static Task<IResult> Update(IMediator mediator, Guid id, UpdateEventCommand updateCommand)
+        private async static Task<IResult> Update(IMediator mediator, Guid id)
         {
             try
             {
-                updateCommand.Id = id;
-                var singleEvent = await mediator.Send(updateCommand);
+                var singleEvent = await mediator.Send(new DeleteEventCommand { Id = id});
                 return singleEvent != null ? Results.Created() : Results.Problem();
 
             }
