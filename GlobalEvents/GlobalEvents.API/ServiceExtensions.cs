@@ -1,7 +1,6 @@
 ﻿using GlobalEvents.Application;
 using GlobalEvents.Infrastructure;
 using GlobalEvents.Persistence;
-using Microsoft.EntityFrameworkCore;
 
 namespace GlobalEvents.API
 {

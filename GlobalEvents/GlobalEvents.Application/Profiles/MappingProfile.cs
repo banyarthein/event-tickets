@@ -1,4 +1,8 @@
 ﻿using AutoMapper;
+using GlobalEvents.Application.Features.Categories.Commands.CreateCategory;
+using GlobalEvents.Application.Features.Categories.Commands.UpdateCategory;
+using GlobalEvents.Application.Features.Categories.Queries.GetCategoryDetails;
+using GlobalEvents.Application.Features.Categories.Queries.GetCategoryList;
 using GlobalEvents.Application.Features.Categories.Queries.GetCategoryListWithEvents;
 using GlobalEvents.Application.Features.Events.Commands.CreateEvent;
 using GlobalEvents.Application.Features.Events.Commands.UpdateEvent;
@@ -27,7 +31,17 @@ namespace GlobalEvents.Application.Profiles
             CreateMap<Category, CategoryEventModel>().ReverseMap();
             CreateMap<Category, CategoryEventListModel>().ReverseMap();
             CreateMap<Category, CategoryModel>().ReverseMap();
-            
+            CreateMap<Category, CategoryListModel>().ReverseMap();
+            CreateMap<Category, CreateCategoryModel>().ReverseMap();
+            CreateMap<Category, UpdateCategoryModel>().ReverseMap();
+            CreateMap<Category, CategoryDetailModel>().ReverseMap();
+            CreateMap<Category, UpdateCategoryCommand>().ReverseMap();
+
+
+
+
+
+
 
         }
 
