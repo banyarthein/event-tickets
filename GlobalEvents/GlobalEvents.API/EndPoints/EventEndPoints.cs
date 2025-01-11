@@ -55,10 +55,10 @@ namespace GlobalEvents.API.EndPoints
         {
             try
             {
-                var singleEvent = await mediator.Send(createCommand);
+                var singleItem = await mediator.Send(createCommand);
 
-                if (singleEvent != null)
-                    return Results.Created($"{moduleUrl}/{singleEvent.Id}", singleEvent);
+                if (singleItem != null)
+                    return Results.Created($"{moduleUrl}/{singleItem.Id}", singleItem);
                 else
                     return Results.Problem();
 
@@ -71,13 +71,19 @@ namespace GlobalEvents.API.EndPoints
 
 
 
-        private async static Task<IResult> Update(IMediator mediator, Guid id)
+        private async static Task<IResult> Update(IMediator mediator, Guid id, UpdateEventCommand updateCommand)
         {
             try
             {
-                var singleEvent = await mediator.Send(new DeleteEventCommand { Id = id});
-                return singleEvent != null ? Results.Created() : Results.Problem();
-
+                var singleItem = await mediator.Send(updateCommand);
+                if (singleItem != null)
+                {
+                    return Results.Ok(singleItem);
+                }
+                else
+                {
+                    return Results.Problem();
+                }
             }
             catch (ValidationException ex)
             {
