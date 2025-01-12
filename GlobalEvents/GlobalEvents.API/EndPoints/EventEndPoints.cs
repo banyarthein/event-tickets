@@ -98,9 +98,9 @@ namespace GlobalEvents.API.EndPoints
             try
             {
                 deleteCommand.Id = id;
-                bool isDeleted = await mediator.Send(deleteCommand);
+                var response = await mediator.Send(deleteCommand);
 
-                if (isDeleted)
+                if (response.Success)
                 {
                     return Results.NoContent();
 

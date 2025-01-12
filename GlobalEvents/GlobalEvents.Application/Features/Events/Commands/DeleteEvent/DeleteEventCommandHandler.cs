@@ -3,7 +3,7 @@ using MediatR;
 
 namespace GlobalEvents.Application.Features.Events.Commands.DeleteEvent
 {
-    public class DeleteEventCommandHandler: IRequestHandler<DeleteEventCommand, bool>
+    public class DeleteEventCommandHandler: IRequestHandler<DeleteEventCommand, DeleteEventCommandResponse>
     {
         private readonly IEventRepo _eventRepo;
 
@@ -12,17 +12,21 @@ namespace GlobalEvents.Application.Features.Events.Commands.DeleteEvent
             this._eventRepo = eventRepo;
         }
 
-        public async Task<bool> Handle(DeleteEventCommand request, CancellationToken cancellationToken)
+        public async Task<DeleteEventCommandResponse> Handle(DeleteEventCommand request, CancellationToken cancellationToken)
         {
+            var response = new DeleteEventCommandResponse();
+
             var eventToDelete = await _eventRepo.GetByIdAsync(request.Id);
             if (eventToDelete != null)
             {
-                return await _eventRepo.DeleteAsync(eventToDelete);
+                response.Success = await _eventRepo.DeleteAsync(eventToDelete);
             }
             else
             {
-                return false;
+                response.Success = false;
             }
+
+            return response;
         }
     }
 }
