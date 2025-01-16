@@ -35,7 +35,7 @@ namespace GlobalEvents.Application.Features.Events.Commands.UpdateEvent
 
         private async Task<bool> IsEventNameAndDateUnique(UpdateEventCommand e, CancellationToken token)
         {
-            return !await _eventRepo.IsEventNameAndDateUniqueAsync(e.Name, e.Date);
+            return !await _eventRepo.IsEventNameAndDateUniqueForUpdateAsync(e.Id, e.Name, e.Date);
         }
     }
 }

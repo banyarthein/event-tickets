@@ -13,6 +13,6 @@ await app.MigrateDataAsync();
 
 
 app.CategoryEndPointsMapping(routingRoot, "Categories");
-//app.EventEndPointsMapping(routingRoot, "Events");
+app.EventEndPointsMapping(routingRoot, "Events");
 
 app.Run();

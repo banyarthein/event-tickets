@@ -71,7 +71,7 @@ namespace GlobalEvents.API.EndPoints
 
 
 
-        private async static Task<IResult> Update(IMediator mediator, Guid id, UpdateEventCommand updateCommand)
+        private async static Task<IResult> Update(IMediator mediator, UpdateEventCommand updateCommand)
         {
             try
             {
@@ -93,12 +93,11 @@ namespace GlobalEvents.API.EndPoints
 
 
 
-        private async static Task<IResult> Delete(IMediator mediator, Guid id, DeleteEventCommand deleteCommand)
+        private async static Task<IResult> Delete(IMediator mediator, Guid id)
         {
             try
             {
-                deleteCommand.Id = id;
-                var response = await mediator.Send(deleteCommand);
+                var response = await mediator.Send(new DeleteEventCommand { Id = id });
 
                 if (response.Success)
                 {
