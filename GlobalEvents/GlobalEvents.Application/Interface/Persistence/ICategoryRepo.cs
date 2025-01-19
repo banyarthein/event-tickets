@@ -7,5 +7,8 @@ namespace GlobalEvents.Application.Interface.Persistence
         Task<List<Category>> GetCategoriesWithEventsAsync(bool includePastEvents);
 
         Task<bool> IsCategoryInUse(Guid Id);
+
+        Task<bool> IsCategoryNameUniqueAsync(string name);
+        Task<bool> IsCategoryNameUniqueForUpdateAsync(Guid id, string name);
     }
 }

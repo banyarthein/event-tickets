@@ -33,5 +33,17 @@ namespace GlobalEvents.Persistence.Repositories
             var matches = _dbContext.Events.Any(e => e.CategoryId == Id);
             return Task.FromResult(matches);
         }
+
+        public Task<bool> IsCategoryNameUniqueAsync(string name)
+        {
+            var matches = _dbContext.Categories.Any(e => e.Name == name);
+            return Task.FromResult(matches);
+        }
+
+        public Task<bool> IsCategoryNameUniqueForUpdateAsync(Guid id, string name)
+        {
+            var matches = _dbContext.Categories.Any(e => (e.Name == name) && (e.Id != id));
+            return Task.FromResult(matches);
+        }
     }
 }

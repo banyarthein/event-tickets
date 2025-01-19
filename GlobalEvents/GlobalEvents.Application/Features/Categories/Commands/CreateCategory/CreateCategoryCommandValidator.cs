@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using GlobalEvents.Application.Features.Events.Commands.CreateEvent;
 using GlobalEvents.Application.Interface.Persistence;
 
 namespace GlobalEvents.Application.Features.Categories.Commands.CreateCategory
@@ -16,6 +17,15 @@ namespace GlobalEvents.Application.Features.Categories.Commands.CreateCategory
             RuleFor(p => p.Name).NotEmpty().WithMessage("{PropertyName} is requried.")
                 .NotNull()
                 .MaximumLength(nameMaxLength).WithMessage("{PropertyName} must not exceed " + nameMaxLength.ToString() + " characters.");
+
+            RuleFor(p => p)
+                    .MustAsync(CategoryNameUnique)
+                    .WithMessage("Category name already exists.");
+        }
+
+        private async Task<bool> CategoryNameUnique(CreateCategoryCommand e, CancellationToken token)
+        {
+            return (!(await _categoryRepo.IsCategoryNameUniqueAsync(e.Name)));
         }
     }
 }
