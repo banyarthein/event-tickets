@@ -8,7 +8,7 @@ var app = builder
             .ConfigureServices()
             .ConfigurePipeLine();
 
-await app.MigrateDataAsync();
+//await app.MigrateDataAsync();
 
 
 

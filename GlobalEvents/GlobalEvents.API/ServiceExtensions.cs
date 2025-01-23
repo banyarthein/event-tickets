@@ -17,6 +17,7 @@ namespace GlobalEvents.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            //builder.Services.AddTransient<IEventExporter, ICSVExporter<GetEventsExportModel>>();
 
 
             builder.Services.AddApplicationServices();
@@ -57,39 +58,39 @@ namespace GlobalEvents.API
             return app;
         }
 
-        public static async Task MigrateDataAsync(this WebApplication app)
-        {
-            using var scope = app.Services.CreateScope();
-            {
-                var services = scope.ServiceProvider;
-                var logger = services.GetService<ILogger<Program>>();
+        //public static Task MigrateDataAsync(this WebApplication app)
+        //{
+        //    using var scope = app.Services.CreateScope();
+        //    {
+        //        var services = scope.ServiceProvider;
+        //        var logger = services.GetService<ILogger<Program>>();
 
-                try
-                {
-                    var context = services.GetRequiredService<GlobalEventDbContext>();
-                    if (context != null)
-                    {
-                        if (context.Database.EnsureCreated())
-                        {
-                            //Seed Additional Data
-                        }
-                        else
-                        {
-                            //await context.Database.MigrateAsync();
-                            //await ApplicationDbContextSeed.SeedSampleDataAsync(context, logger);
-                        }
+        //        try
+        //        {
+        //            var context = services.GetRequiredService<GlobalEventDbContext>();
+        //            if (context != null)
+        //            {
+        //                if (context.Database.EnsureCreated())
+        //                {
+        //                    //Seed Additional Data
+        //                }
+        //                else
+        //                {
+        //                    //await context.Database.MigrateAsync();
+        //                    //await ApplicationDbContextSeed.SeedSampleDataAsync(context, logger);
+        //                }
 
-                    }
-                }
-                catch (Exception ex)
-                {
-                    if (logger != null)
-                    {
-                        logger.LogError(ex, "An error occurred while migrating or seeding the database.");
-                    }
-                }
-            }
-        }
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            if (logger != null)
+        //            {
+        //                logger.LogError(ex, "An error occurred while migrating or seeding the database.");
+        //            }
+        //        }
+        //    }
+        //}
 
     }
 }

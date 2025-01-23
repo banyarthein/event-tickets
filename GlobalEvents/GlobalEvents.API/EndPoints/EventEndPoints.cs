@@ -3,7 +3,9 @@ using GlobalEvents.Application.Features.Events.Commands.CreateEvent;
 using GlobalEvents.Application.Features.Events.Commands.DeleteEvent;
 using GlobalEvents.Application.Features.Events.Commands.UpdateEvent;
 using GlobalEvents.Application.Features.Events.Queries.GetEventDetails;
+using GlobalEvents.Application.Features.Events.Queries.GetEventExport;
 using GlobalEvents.Application.Features.Events.Queries.GetEventList;
+using GlobalEvents.Application.Model.Common;
 using GlobalEvents.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +31,11 @@ namespace GlobalEvents.API.EndPoints
                 .Produces<EventDetailModel>(StatusCodes.Status200OK)
                 .Produces(StatusCodes.Status404NotFound);
 
+            moduleRoot.MapGet("/export", Export)
+                .WithName("ExportEvents")
+                .Produces<ExportFile>(StatusCodes.Status200OK);
+
+
             moduleRoot.MapPost("/", Create)
                 .WithName("CreateEvent")
                 .Produces<Event>(StatusCodes.Status201Created)
@@ -47,6 +54,9 @@ namespace GlobalEvents.API.EndPoints
                 .Produces<bool>(StatusCodes.Status204NoContent)
                 .Produces(StatusCodes.Status404NotFound)
                 .Produces(StatusCodes.Status500InternalServerError);
+
+
+
         }
 
         private async static Task<IResult> GetAll(IMediator mediator)
@@ -154,6 +164,13 @@ namespace GlobalEvents.API.EndPoints
             {
                 return Results.Problem(ex.Message);
             }
+        }
+
+
+        private async static Task<IResult> Export(IMediator mediator)
+        {
+            var exportFile = await mediator.Send(new GetEventsExportQuery());
+            return Results.File(exportFile.Data, exportFile.ContentType, exportFile.FileName);
         }
 
     }

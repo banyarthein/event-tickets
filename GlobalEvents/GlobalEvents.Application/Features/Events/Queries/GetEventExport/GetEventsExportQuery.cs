@@ -1,13 +1,9 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GlobalEvents.Application.Model.Common;
+using MediatR;
 
 namespace GlobalEvents.Application.Features.Events.Queries.GetEventExport
 {
-    public class GetEventsExportQuery: IRequest<GetEventsExportFile>
+    public class GetEventsExportQuery: IRequest<ExportFile>
     {
     }
 }

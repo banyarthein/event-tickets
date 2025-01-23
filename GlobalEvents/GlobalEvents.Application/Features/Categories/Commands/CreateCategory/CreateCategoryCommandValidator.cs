@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using GlobalEvents.Application.Features.Events.Commands.CreateEvent;
 using GlobalEvents.Application.Interface.Persistence;
 
 namespace GlobalEvents.Application.Features.Categories.Commands.CreateCategory

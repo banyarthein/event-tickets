@@ -7,6 +7,7 @@ using GlobalEvents.Application.Features.Categories.Queries.GetCategoryListWithEv
 using GlobalEvents.Application.Features.Events.Commands.CreateEvent;
 using GlobalEvents.Application.Features.Events.Commands.UpdateEvent;
 using GlobalEvents.Application.Features.Events.Queries.GetEventDetails;
+using GlobalEvents.Application.Features.Events.Queries.GetEventExport;
 using GlobalEvents.Application.Features.Events.Queries.GetEventList;
 using GlobalEvents.Application.Features.Orders.Commands.CreateOrder;
 using GlobalEvents.Application.Features.Orders.Commands.UpdateOrder;
@@ -25,6 +26,7 @@ namespace GlobalEvents.Application.Profiles
             CreateMap<Order, CreateOrderModel>().ReverseMap();
             CreateMap<Order, UpdateOrderModel>().ReverseMap();
             CreateMap<Event, CreateEventCommand>().ReverseMap();
+            CreateMap<Event, GetEventsExportModel>().ReverseMap();
 
 
 

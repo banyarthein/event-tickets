@@ -18,6 +18,7 @@ namespace GlobalEvents.Persistence
             services.AddScoped<IEventRepo, EventRepo>();
             services.AddScoped<IOrderRepo, OrderRepo>();
 
+
             return services;
         }
     }

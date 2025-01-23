@@ -4,8 +4,6 @@ using GlobalEvents.Application.Features.Categories.Commands.DeleteCategory;
 using GlobalEvents.Application.Features.Categories.Commands.UpdateCategory;
 using GlobalEvents.Application.Features.Categories.Queries.GetCategoryDetails;
 using GlobalEvents.Application.Features.Categories.Queries.GetCategoryList;
-using GlobalEvents.Application.Features.Events.Queries.GetEventDetails;
-using GlobalEvents.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
