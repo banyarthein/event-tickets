@@ -27,7 +27,7 @@ namespace GlobalEvents.Application.Features.Events.Queries.GetEventExport
 
             var fileData = _csvExporter.ExportToCSV(eventsToExport);
 
-            ExportFile exportFile = new ExportFile() { ContentType = "text/csv", Data = fileData, FileName = $"EventData_{DateTime.Now.ToString("yyyy-MM-dd_hh-mm-ss")}.csv" };
+            ExportFile exportFile = new ExportFile() { ContentType = "text/csv", Data = fileData, FileName = $"Event_List_{DateTime.Now.ToString("yyyy-MM-dd_hh-mm-ss")}.csv" };
 
             return exportFile;
 

@@ -39,12 +39,6 @@ namespace GlobalEvents.Application.Profiles
             CreateMap<Category, CategoryDetailModel>().ReverseMap();
             CreateMap<Category, UpdateCategoryCommand>().ReverseMap();
 
-
-
-
-
-
-
         }
 
     }

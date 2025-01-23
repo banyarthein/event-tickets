@@ -1,4 +1,5 @@
-﻿using GlobalEvents.Application.Features.Events.Queries.GetEventExport;
+﻿using GlobalEvents.Application.Features.Categories.Queries.GetCategoryList;
+using GlobalEvents.Application.Features.Events.Queries.GetEventExport;
 using GlobalEvents.Application.Interface.Infrastructure;
 using GlobalEvents.Application.Model.Mail;
 using GlobalEvents.Infrastructure.Export;
@@ -16,11 +17,10 @@ namespace GlobalEvents.Infrastructure
 
             services.AddTransient<IEmailService, PostMarkEmailService>();
             services.AddTransient<ICSVExporter<GetEventsExportModel>, CSVExporter<GetEventsExportModel>>();
-            //services.AddTransient<IEventExporter, CSVExporter<GetEventsExportModel>>();
-
-            //services.AddTransient<IEventExporter, CSVExporter<GetEventsExportModel>>();
+            services.AddTransient<ICSVExporter<CategoryListModel>, CSVExporter<CategoryListModel>>();
 
             return services;
         }
     }
 }
+
