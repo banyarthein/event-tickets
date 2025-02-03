@@ -21,7 +21,7 @@ namespace GlobalEvents.API.EndPoints
             moduleUrl = routingRoot + moduleName;
 
             var moduleRoot = app.MapGroup(moduleUrl);
-
+             
             moduleRoot.MapGet("/", GetAll)
                 .WithName("GetEvents")
                 .Produces<List<EventListModel>>(StatusCodes.Status200OK); ;

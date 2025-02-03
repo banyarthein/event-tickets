@@ -12,7 +12,7 @@ var app = builder
 
 
 
-app.CategoryEndPointsMapping(routingRoot, "Categories");
-app.EventEndPointsMapping(routingRoot, "Events");
+app.CategoryEndPointsMapping(routingRoot, "categories");
+app.EventEndPointsMapping(routingRoot, "events");
 
 app.Run();

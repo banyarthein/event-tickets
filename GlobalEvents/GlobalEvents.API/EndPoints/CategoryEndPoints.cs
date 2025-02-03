@@ -5,6 +5,7 @@ using GlobalEvents.Application.Features.Categories.Commands.UpdateCategory;
 using GlobalEvents.Application.Features.Categories.Queries.GetCategoryDetails;
 using GlobalEvents.Application.Features.Categories.Queries.GetCategoryExport;
 using GlobalEvents.Application.Features.Categories.Queries.GetCategoryList;
+using GlobalEvents.Application.Model.Common;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,7 +33,7 @@ namespace GlobalEvents.API.EndPoints
 
             moduleRoot.MapGet("/export", Export)
                 .WithName("ExportCategories")
-                .Produces<List<CategoryListModel>>(StatusCodes.Status200OK);
+                .Produces<List<ExportFile>>(StatusCodes.Status200OK);
 
 
             moduleRoot.MapPost("/", Create)
